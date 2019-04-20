@@ -2,8 +2,12 @@
 This package is used to create deeplinks for affiliate marketing.
 Currently it supports only [Afilio](http://afilio.com.br/)
 
-## Local installation
+## Installation
+##### with setup.py
 `python setup.py install`
+##### with pip
+`pip install affiliate-deeplink`
+
 
 ##### Usage
 * Setup environment keys
