@@ -2,11 +2,8 @@ import os
 from urllib.parse import quote_plus
 
 import requests
-import requests_cache
 
 from affiliate_deeplink.base import BaseDeeplinkGenerator
-
-requests_cache.install_cache(os.path.join(os.path.expanduser('~'), '.affiliate_deeplink_cache'))
 
 
 class Afilio(BaseDeeplinkGenerator):
