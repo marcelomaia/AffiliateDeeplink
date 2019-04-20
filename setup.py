@@ -8,7 +8,7 @@ setup(
     license='MIT',
     author='Marcelo Maia',
     author_email='mmaia.cc@gmail.com',
-    description='Deeplink generator for affiliate marketing',
+    description='Deeplink generator for affiliate marketing.',
     install_requires=[
         'requests-cache==0.5.0',
         'requests==2.21.0',
