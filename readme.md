@@ -1,6 +1,9 @@
 ## What is it?
 This package is used to create deeplinks for affiliate marketing.
-Currently it supports only [Afilio](http://afilio.com.br/)
+
+Currently supported:
+ * [Afilio](http://afilio.com.br/)
+ * [B2W](https://secure.afiliados.com.br/)
 
 ## Installation
 ##### with setup.py
@@ -11,10 +14,11 @@ Currently it supports only [Afilio](http://afilio.com.br/)
 
 ##### Usage
 * Setup environment keys
-    * AFILIO_AFFID = ''
-    * AFILIO_TOKEN = ''
-    * AFILIO_SITE_ID = ''
-
+    * AFILIO_AFFID=
+    * AFILIO_TOKEN=
+    * AFILIO_SITE_ID=
+    * BW2_AFL_ID=
+    
 * import module and use-it
     * `>>> from affiliate_deeplink.afilio import Afilio`
     * `>>> Afilio.get_tracking_url('url')`
