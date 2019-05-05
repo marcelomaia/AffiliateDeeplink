@@ -6,6 +6,7 @@ Currently supported:
  * [B2W](https://secure.afiliados.com.br/)
  * [Amazon](https://associados.amazon.com.br/)
  * [MagazineLuiza](https://www.magazinevoce.com.br/)
+ * [Natura](https://natura.com.br)
 
 ## Installation
 ##### with setup.py
@@ -22,7 +23,7 @@ Currently supported:
     * BW2_AFL_ID=
     * AMZ_STORE_NAME=
     * MGZ_STORE_NAME=
-    
+    * NATURA_CONSULTORIA_NAME=
 * import module and use-it
     * `>>> from affiliate_deeplink.afilio import Afilio`
     * `>>> Afilio.get_tracking_url('url')`
