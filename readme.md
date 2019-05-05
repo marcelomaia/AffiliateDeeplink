@@ -5,6 +5,7 @@ Currently supported:
  * [Afilio](http://afilio.com.br/)
  * [B2W](https://secure.afiliados.com.br/)
  * [Amazon](https://associados.amazon.com.br/)
+ * [MagazineLuiza](https://www.magazinevoce.com.br/)
 
 ## Installation
 ##### with setup.py
@@ -20,6 +21,7 @@ Currently supported:
     * AFILIO_SITE_ID=
     * BW2_AFL_ID=
     * AMZ_STORE_NAME=
+    * MGZ_STORE_NAME=
     
 * import module and use-it
     * `>>> from affiliate_deeplink.afilio import Afilio`
