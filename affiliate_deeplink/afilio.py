@@ -66,7 +66,8 @@ programs = {
     "carrefour.com.br": 2001,
     "korresbr.com.br": 2628,
     "loja.jequiti.com.br": 2495,
-    "centralar.com.br": 2168
+    "centralar.com.br": 2168,
+    'banggood.com': 2693
 }
 
 
