@@ -1,6 +1,5 @@
-import os
-
 from affiliate_deeplink.base import BaseDeeplinkGenerator
+from affiliate_deeplink.config import BW2_AFL_ID
 from affiliate_deeplink.utils import add_url_params
 
 
@@ -14,7 +13,7 @@ class B2w(BaseDeeplinkGenerator):
 
     @classmethod
     def get_tracking_url(cls, url):
-        params = {'franq': os.getenv('BW2_AFL_ID'),
+        params = {'franq': BW2_AFL_ID,
                   'epar': 'b2wafiliados',
                   'hl': 'lower'}
         if 'americanas.com.br' in url:
