@@ -1,7 +1,7 @@
-import os
 from urllib import parse
 
 from affiliate_deeplink.base import BaseDeeplinkGenerator
+from affiliate_deeplink.config import AMZ_STORE_NAME
 from affiliate_deeplink.utils import add_url_params
 
 
@@ -12,7 +12,7 @@ class Amazon(BaseDeeplinkGenerator):
     def get_tracking_url(cls, url):
         parsed_uri = parse.urlparse(url)
         params_dict = dict(parse.parse_qsl(parsed_uri.query))
-        params = {'tag': os.getenv('AMZ_STORE_NAME'),
+        params = {'tag': AMZ_STORE_NAME,
                   '_encoding': 'UTF8'}
         for key in params_dict:
             if key not in cls.ignore_args:
