@@ -1,31 +1,24 @@
 import os
+from urllib import parse
 
 from affiliate_deeplink.base import BaseDeeplinkGenerator
 from affiliate_deeplink.utils import add_url_params
 
 
 class Amazon(BaseDeeplinkGenerator):
-    """
-    TODO: handle more parameters
-    tag=goog0ef-20
-    smid=A1ZZFT5FULY4LN
-    ascsubtag=go_1671362860_66503928682_323778975481_pla-797635043272_c_
-    tag=neiamartins-20
+    ignore_args = ['tag', 'ref']
 
-    ?ie=UTF8
-    linkCode=ll1
-    tag=cuponomizar-20
-    linkId=0c82dc3a6b69cea2b1529b62e91f4c67
-    language=pt_BR
-
-    node=16243840011
-    linkCode=ll2
-    linkId=48668d55484ff92cc9094d7c8897461d
-
-    """
     @classmethod
     def get_tracking_url(cls, url):
+        parsed_uri = parse.urlparse(url)
+        params_dict = dict(parse.parse_qsl(parsed_uri.query))
         params = {'tag': os.getenv('AMZ_STORE_NAME'),
                   '_encoding': 'UTF8'}
+        for key in params_dict:
+            if key not in cls.ignore_args:
+                params[key] = params_dict[key]
+        url = '{scheme}://{netloc}{path}'.format(scheme=parsed_uri.scheme,
+                                                 netloc=parsed_uri.netloc,
+                                                 path=parsed_uri.path)
         url = add_url_params(url, params)
         return url
