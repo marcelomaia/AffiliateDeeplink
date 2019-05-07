@@ -7,6 +7,7 @@ Currently supported:
  * [Amazon](https://associados.amazon.com.br/)
  * [MagazineLuiza](https://www.magazinevoce.com.br/)
  * [Natura](https://natura.com.br)
+ * [Banggood](https://www.banggood.com)
 
 ## Installation
 ##### with setup.py
@@ -24,6 +25,7 @@ Currently supported:
     * AMZ_STORE_NAME=
     * MGZ_STORE_NAME=
     * NATURA_CONSULTORIA_NAME=
+    * BANGGOOD_REFERENCE_ID=
 * import module and use-it
     * `>>> from affiliate_deeplink.afilio import Afilio`
     * `>>> Afilio.get_tracking_url('url')`

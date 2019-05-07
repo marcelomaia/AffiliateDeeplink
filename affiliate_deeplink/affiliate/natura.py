@@ -1,7 +1,7 @@
-import os
 from urllib import parse
 
 from affiliate_deeplink.base import BaseDeeplinkGenerator
+from affiliate_deeplink.config import NATURA_CONSULTORIA_NAME
 
 
 class Natura(BaseDeeplinkGenerator):
@@ -12,7 +12,7 @@ class Natura(BaseDeeplinkGenerator):
     @classmethod
     def get_tracking_url(cls, url):
         parsed_uri = parse.urlparse(url)
-        query = 'consultoria={}&a=a'.format(os.getenv('NATURA_CONSULTORIA_NAME'))
+        query = 'consultoria={}&a=a'.format(NATURA_CONSULTORIA_NAME)
         url = '{scheme}://{netloc}{path}?{query}'.format(scheme=parsed_uri.scheme,
                                                          netloc=parsed_uri.netloc,
                                                          path=parsed_uri.path,

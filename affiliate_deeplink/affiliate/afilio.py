@@ -1,9 +1,9 @@
-import os
 from urllib import parse as url_parse
 
 import requests
 
 from affiliate_deeplink.base import BaseDeeplinkGenerator
+from affiliate_deeplink.config import AFILIO_TOKEN, AFILIO_AFFID, AFILIO_SITE_ID
 
 programs = {
     "walmart.com.br": 191,
@@ -66,7 +66,8 @@ programs = {
     "carrefour.com.br": 2001,
     "korresbr.com.br": 2628,
     "loja.jequiti.com.br": 2495,
-    "centralar.com.br": 2168
+    "centralar.com.br": 2168,
+    'banggood.com': 2693
 }
 
 
@@ -81,8 +82,8 @@ class Afilio(BaseDeeplinkGenerator):
                  "&bantitle=deeplink&bandesc=deeplink&siteid={siteid}" \
                  "&desturl={url}".format(url=url,
                                          progid=programs.get(domain),
-                                         affid=os.getenv('AFILIO_AFFID'),
-                                         token=os.getenv('AFILIO_TOKEN'),
-                                         siteid=os.getenv('AFILIO_SITE_ID'))
+                                         affid=AFILIO_AFFID,
+                                         token=AFILIO_TOKEN,
+                                         siteid=AFILIO_SITE_ID)
         r = requests.get(requrl)
         return r.text.split('href="')[1].split('" target="')[0].replace('&amp;', '&')
