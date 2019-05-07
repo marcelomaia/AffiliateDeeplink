@@ -1,19 +1,18 @@
 from urllib import parse
 
 from affiliate_deeplink.base import BaseDeeplinkGenerator
-from affiliate_deeplink.config import AMZ_STORE_NAME
+from affiliate_deeplink.config import BANGGOOD_REFERENCE_ID
 from affiliate_deeplink.utils import add_url_params
 
 
-class Amazon(BaseDeeplinkGenerator):
-    ignore_args = ['tag', 'ref', 'linkId']
+class Banggood(BaseDeeplinkGenerator):
+    ignore_args = ['p', 'utm_campaign', 'utm_content', 'custlinkid']
 
     @classmethod
     def get_tracking_url(cls, url):
         parsed_uri = parse.urlparse(url)
         params_dict = dict(parse.parse_qsl(parsed_uri.query))
-        params = {'tag': AMZ_STORE_NAME,
-                  '_encoding': 'UTF8'}
+        params = {'p': BANGGOOD_REFERENCE_ID}
         for key in params_dict:
             if key not in cls.ignore_args:
                 params[key] = params_dict[key]

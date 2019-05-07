@@ -3,3 +3,4 @@ from .affiliate.amazon import Amazon
 from .affiliate.b2w import B2w
 from .affiliate.magazine_luiza import Magalu
 from .affiliate.natura import Natura
+from .affiliate.banggood import Banggood
