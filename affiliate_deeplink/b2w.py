@@ -1,6 +1,6 @@
-from affiliate_deeplink.base import BaseDeeplinkGenerator
-from affiliate_deeplink.config import BW2_AFL_ID
-from affiliate_deeplink.utils import add_url_params
+from .base import BaseDeeplinkGenerator
+from .config import BW2_AFL_ID
+from .utils import add_url_params
 
 
 class B2w(BaseDeeplinkGenerator):

@@ -1,4 +1,7 @@
 from json import dumps
+from urllib import parse
+
+from affiliate_deeplink.config import ignore_args
 
 try:
     from urllib import urlencode, unquote
@@ -50,3 +53,21 @@ def add_url_params(url, params):
     ).geturl()
 
     return new_url
+
+
+def clear_url(url: str, params: dict = {}) -> str:
+    """
+    :param url: some affiliate link supported
+    :param params: {data:value}
+    :return:
+    """
+    parsed_uri = parse.urlparse(url)
+    params_dict = dict(parse.parse_qsl(parsed_uri.query))
+    for key in params_dict:
+        if key not in ignore_args:
+            params[key] = params_dict[key]
+    url = '{scheme}://{netloc}{path}'.format(scheme=parsed_uri.scheme,
+                                             netloc=parsed_uri.netloc,
+                                             path=parsed_uri.path)
+    url = add_url_params(url, params)
+    return url
