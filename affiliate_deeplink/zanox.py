@@ -11,8 +11,9 @@ class Zanox(BaseDeeplinkGenerator):
                   'connectid={connectid}&' \
                   'format=json&' \
                   'adspaceid={adspaceid}&' \
-                  'url={url}'.format(url=url,
-                                     adspaceid=ZANOX_ADS_SPACE_ID,
-                                     connectid=ZANOX_CONNECT_ID)
+                  'url={url}' \
+            .format(connectid=ZANOX_CONNECT_ID,
+                    adspaceid=ZANOX_ADS_SPACE_ID,
+                    url=url)
         r = requests.get(req_url)
-        return r.json()
+        return r.json()['url']
