@@ -16,7 +16,7 @@ ignore_args = ['tag', 'ref', 'linkId',  # amazon
                'p', 'utm_campaign', 'utm_content', 'custlinkid',  # bangood
                'utm_source', 'zanpid', 'utm_medium', 'utm_campaign', 'origem',  # zanox
                'utm_term', 'siteID', 'utm_source', 'utm_medium', 'u1',  # rakuten
-               'ranMID', 'utm_term', 'ranSiteID'  # rakuten
+               'ranMID', 'utm_term', 'ranSiteID', 'IdParceiro'  # rakuten
                ]
 
 afilio_programs = {

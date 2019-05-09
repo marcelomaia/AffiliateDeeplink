@@ -1,16 +1,11 @@
+import logging
 from json import dumps
 from urllib import parse
+from urllib.parse import (unquote, urlparse, parse_qsl, ParseResult)
 
-from affiliate_deeplink.config import ignore_args
+from .config import ignore_args
 
-try:
-    from urllib import urlencode, unquote
-    from urlparse import urlparse, parse_qsl, ParseResult
-except ImportError:
-    # Python 3 fallback
-    from urllib.parse import (
-        urlencode, unquote, urlparse, parse_qsl, ParseResult
-    )
+log = logging.getLogger('deeplink.util')
 
 
 def add_url_params(url, params):
@@ -42,14 +37,13 @@ def add_url_params(url, params):
         {k: dumps(v) for k, v in parsed_get_args.items()
          if isinstance(v, (bool, dict))}
     )
-
     # Converting URL argument to proper query string
-    encoded_get_args = urlencode(parsed_get_args, doseq=True)
+    query_args = '&'.join([('{}={}'.format(p, q)) for p, q in parsed_get_args.items()])
     # Creating new parsed result object based on provided with new
     # URL arguments. Same thing happens inside of urlparse.
     new_url = ParseResult(
         parsed_url.scheme, parsed_url.netloc, parsed_url.path,
-        parsed_url.params, encoded_get_args, parsed_url.fragment
+        parsed_url.params, query_args, parsed_url.fragment
     ).geturl()
 
     return new_url
@@ -66,8 +60,9 @@ def clear_url(url: str, params: dict = {}) -> str:
     for key in params_dict:
         if key not in ignore_args:
             params[key] = params_dict[key]
-    url = '{scheme}://{netloc}{path}'.format(scheme=parsed_uri.scheme,
-                                             netloc=parsed_uri.netloc,
-                                             path=parsed_uri.path)
-    url = add_url_params(url, params)
-    return url
+    cleared_url = '{scheme}://{netloc}{path}'.format(scheme=parsed_uri.scheme,
+                                                     netloc=parsed_uri.netloc,
+                                                     path=parsed_uri.path)
+    cleared_url = add_url_params(cleared_url, params)
+    log.debug('URL cleared, \nfrom {} \nto {}'.format(url, cleared_url))
+    return cleared_url
