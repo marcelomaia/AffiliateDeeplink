@@ -8,6 +8,8 @@ Currently supported:
  * [MagazineLuiza](https://www.magazinevoce.com.br/)
  * [Natura](https://natura.com.br)
  * [Banggood](https://www.banggood.com)
+ * [Lomadee](https://www.lomadee.com/)
+ * [Zanox/Awin](https://marketplace.zanox.com/)
 
 ## Installation
 ##### with setup.py
