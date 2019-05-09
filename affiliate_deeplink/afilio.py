@@ -25,8 +25,8 @@ class Afilio(BaseDeeplinkGenerator):
                                          affid=AFILIO_AFFID,
                                          token=AFILIO_TOKEN,
                                          siteid=AFILIO_SITE_ID)
-        r = requests.get(requrl)
         try:
+            r = requests.get(requrl)
             deeplink = r.text.split('href="')[1].split('" target="')[0].replace('&amp;', '&')
         except IndexError as e:
             logger.error('Error: {}'.format(r.text))
