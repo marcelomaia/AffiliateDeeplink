@@ -1,7 +1,7 @@
 import requests
 
-from affiliate_deeplink.base import BaseDeeplinkGenerator
-from affiliate_deeplink.config import LOMADEE_SOURCE_ID
+from .base import BaseDeeplinkGenerator
+from .config import LOMADEE_SOURCE_ID
 
 
 class Lomadee(BaseDeeplinkGenerator):

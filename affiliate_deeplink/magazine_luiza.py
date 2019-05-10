@@ -1,7 +1,7 @@
 from urllib import parse
 
-from affiliate_deeplink.base import BaseDeeplinkGenerator
-from affiliate_deeplink.config import MGZ_STORE_NAME
+from .base import BaseDeeplinkGenerator
+from .config import MGZ_STORE_NAME
 
 
 class Magalu(BaseDeeplinkGenerator):
