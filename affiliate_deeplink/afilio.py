@@ -1,5 +1,5 @@
 import logging
-from urllib import parse as url_parse
+from urllib import parse
 
 import requests
 
@@ -15,9 +15,10 @@ class Afilio(BaseDeeplinkGenerator):
     @classmethod
     def get_tracking_url(cls, url):
         deeplink = ''
-        parsed_uri = url_parse.urlparse(url)
+        parsed_uri = parse.urlparse(url)
         domain = '{uri.netloc}'.format(uri=parsed_uri).replace('www.', '')
         url = clear_url(url)
+        url = parse.quote_plus(url)
         requrl = "http://v2.afilio.com.br/api/deeplink.php" \
                  "?token={token}&affid={affid}&progid={progid}" \
                  "&bantitle=deeplink&bandesc=deeplink&siteid={siteid}" \

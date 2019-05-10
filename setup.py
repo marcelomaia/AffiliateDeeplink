@@ -2,7 +2,7 @@ from setuptools import setup
 
 setup(
     name='affiliate_deeplink',
-    version='0.0.8',
+    version='0.0.9',
     packages=['affiliate_deeplink'],
     url='https://github.com/marcelomaia/AffiliateDeeplink',
     license='MIT',
