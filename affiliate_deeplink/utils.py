@@ -55,12 +55,14 @@ ignore_args = ['tag', 'ref', 'linkId',  # amazon
                ]
 
 
-def clear_url(url: str, params: dict = {}) -> str:
+def clear_url(url: str, input_params: dict = {}) -> str:
     """
     :param url: some affiliate link supported
-    :param params: {data:value}
+    :param input_params: {data:value}
     :return:
     """
+    params = {}
+    params.update(input_params)
     parsed_uri = parse.urlparse(url)
     params_dict = dict(parse.parse_qsl(parsed_uri.query))
     for key in params_dict:
