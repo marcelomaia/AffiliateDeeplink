@@ -24,6 +24,8 @@ class Lomadee(BaseDeeplinkGenerator):
             deeplink = r.json()['lomadeelinks'][0]['lomadeelink']['redirectlink']
         except IndexError as e:
             logger.error('Error: {}'.format(r.text))
+        except KeyError as e:
+            logger.error('Error: {}'.format(r.text))
         except ConnectionError as e:
             logger.error('Error: {}'.format(e))
         return deeplink

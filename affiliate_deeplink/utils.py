@@ -3,8 +3,6 @@ from json import dumps
 from urllib import parse
 from urllib.parse import (unquote, urlparse, parse_qsl, ParseResult)
 
-from .config import ignore_args
-
 log = logging.getLogger('deeplink.util')
 
 
@@ -47,6 +45,14 @@ def add_url_params(url, params):
     ).geturl()
 
     return new_url
+
+
+ignore_args = ['tag', 'ref', 'linkId',  # amazon
+               'p', 'utm_campaign', 'utm_content', 'custlinkid',  # bangood
+               'utm_source', 'zanpid', 'utm_medium', 'utm_campaign', 'origem',  # zanox
+               'utm_term', 'siteID', 'utm_source', 'utm_medium', 'u1',  # rakuten
+               'ranMID', 'utm_term', 'ranSiteID', 'IdParceiro'  # rakuten
+               ]
 
 
 def clear_url(url: str, params: dict = {}) -> str:
