@@ -10,7 +10,7 @@ class Lomadee(BaseDeeplinkGenerator):
     """
 
     @classmethod
-    def get_tracking_url(cls, url):
+    def get_tracking_url(cls, url, **kwargs):
         req_url = 'http://bws.buscape.com/service/createLinks/lomadee/{app_id}/' \
                   '?sourceId={source_id}&format=json&link1={link_1}'. \
             format(source_id=LOMADEE_SOURCE_ID, link_1=url, app_id='3651516a44624e526551453d')
