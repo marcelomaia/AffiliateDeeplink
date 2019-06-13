@@ -87,7 +87,6 @@ def magalu_url(request):
     return request.param
 
 
-@pytest.fixture(scope="function", params=[('http://americanas.com.br', 'https://redir.lomadee.com/v2/blablabla'),
-                                          ('http://submarino.com.br', 'https://redir.lomadee.com/v2/foobar')])
+@pytest.fixture(scope="function", params=[('http://americanas.com.br', 'https://iuuuupiiii.com')])
 def lomadee_url(request):
     return request.param
