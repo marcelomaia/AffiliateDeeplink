@@ -1,10 +1,15 @@
 language: python
 python:
 - "3.6"
+before_script:
+  - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+  - chmod +x ./cc-test-reporter
 install:
 - python setup.py install
+- pip install -r requirements/dev.txt
 script:
 - make build
+- "pytest"
 deploy:
   provider: pypi
   user: mmaia.cc
