@@ -22,7 +22,5 @@ class B2w(BaseDeeplinkGenerator):
             params['opn'] = 'AFLNOVOSUB'
         elif 'shoptime.com.br' in url:
             params['opn'] = 'AFLSHOP'
-        elif 'soubarato.com.br' in url:
-            params['opn'] = 'B2WAFILIADOS'
         url = add_url_params(url, params)
         return url
