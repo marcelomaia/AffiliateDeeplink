@@ -1,3 +1,8 @@
+[![Build Status](https://travis-ci.org/marcelomaia/AffiliateDeeplink.svg?branch=master)](https://travis-ci.org/marcelomaia/AffiliateDeeplink)
+[![PyPI version](https://badge.fury.io/py/affiliate-deeplink.svg)](https://badge.fury.io/py/affiliate-deeplink)
+[![Pypi downloads](https://img.shields.io/pypi/dm/affiliate-deeplink.svg)](https://img.shields.io/pypi/dm/affiliate-deeplink.svg)
+[![Maintainability](https://api.codeclimate.com/v1/badges/f9a4f9157b86608f527c/maintainability)](https://codeclimate.com/github/marcelomaia/AffiliateDeeplink/maintainability)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/f9a4f9157b86608f527c/test_coverage)](https://codeclimate.com/github/marcelomaia/AffiliateDeeplink/test_coverage)
 ## What is it?
 This package is used to create deeplinks for affiliate marketing.
 

@@ -12,7 +12,7 @@ logger = logging.getLogger('deeplink.zanox')
 
 class Zanox(BaseDeeplinkGenerator):
     @classmethod
-    def get_tracking_url(cls, url):
+    def get_tracking_url(cls, url, **kwargs):
         url = clear_url(url)
         url = parse.quote_plus(url)
         deeplink = ''

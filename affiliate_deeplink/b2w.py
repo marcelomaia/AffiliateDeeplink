@@ -12,7 +12,7 @@ class B2w(BaseDeeplinkGenerator):
     """
 
     @classmethod
-    def get_tracking_url(cls, url):
+    def get_tracking_url(cls, url, **kwargs):
         params = {'franq': BW2_AFL_ID,
                   'epar': 'b2wafiliados',
                   'hl': 'lower'}
@@ -22,7 +22,5 @@ class B2w(BaseDeeplinkGenerator):
             params['opn'] = 'AFLNOVOSUB'
         elif 'shoptime.com.br' in url:
             params['opn'] = 'AFLSHOP'
-        elif 'soubarato.com.br' in url:
-            params['opn'] = 'B2WAFILIADOS'
         url = add_url_params(url, params)
         return url
