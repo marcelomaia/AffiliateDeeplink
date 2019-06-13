@@ -13,8 +13,9 @@ class Lomadee(BaseDeeplinkGenerator):
         See all advertisers https://www.lomadee.com/dashboard/#/advertisers
     """
 
+    # TODO: extract  req_url to be a function, then monkeypatch on test to verify exceptions
     @classmethod
-    def get_tracking_url(cls, url):
+    def get_tracking_url(cls, url, **kwargs):
         deeplink = ''
         req_url = 'http://bws.buscape.com/service/createLinks/lomadee/{app_id}/' \
                   '?sourceId={source_id}&format=json&link1={link_1}'. \
