@@ -3,8 +3,6 @@ from json import dumps
 from urllib import parse
 from urllib.parse import (unquote, urlparse, parse_qsl, ParseResult)
 
-from .config import ignore_args
-
 log = logging.getLogger('deeplink.util')
 
 
@@ -49,12 +47,23 @@ def add_url_params(url, params):
     return new_url
 
 
-def clear_url(url: str, params: dict = {}) -> str:
+ignore_args = ['tag', 'ref', 'linkId',  # amazon
+               'p', 'utm_campaign', 'utm_content', 'custlinkid',  # bangood
+               'utm_source', 'zanpid', 'utm_medium', 'utm_campaign', 'origem',  # zanox
+               'utm_term', 'siteID', 'utm_source', 'utm_medium', 'u1',  # rakuten
+               'ranMID', 'utm_term', 'ranSiteID', 'IdParceiro',  # rakuten
+               'lmdsid',  # lomadee
+               ]
+
+
+def clear_url(url: str, input_params: dict = {}) -> str:
     """
     :param url: some affiliate link supported
-    :param params: {data:value}
+    :param input_params: {data:value}
     :return:
     """
+    params = {}
+    params.update(input_params)
     parsed_uri = parse.urlparse(url)
     params_dict = dict(parse.parse_qsl(parsed_uri.query))
     for key in params_dict:

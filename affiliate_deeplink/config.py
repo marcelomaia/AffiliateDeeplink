@@ -12,13 +12,6 @@ LOMADEE_SOURCE_ID = os.getenv('LOMADEE_SOURCE_ID')
 ZANOX_ADS_SPACE_ID = os.getenv('ZANOX_ADS_SPACE_ID')
 ZANOX_CONNECT_ID = os.getenv('ZANOX_CONNECT_ID')
 
-ignore_args = ['tag', 'ref', 'linkId',  # amazon
-               'p', 'utm_campaign', 'utm_content', 'custlinkid',  # bangood
-               'utm_source', 'zanpid', 'utm_medium', 'utm_campaign', 'origem',  # zanox
-               'utm_term', 'siteID', 'utm_source', 'utm_medium', 'u1',  # rakuten
-               'ranMID', 'utm_term', 'ranSiteID', 'IdParceiro'  # rakuten
-               ]
-
 afilio_programs = {
     "walmart.com.br": 191,
     "polishop.com.br": 357,
@@ -69,6 +62,7 @@ afilio_programs = {
     "madeiramadeira.com.br": 1885,
     "colombo.com.br": 1739,
     "emporio.com": 1754,
+    "emporiodacerveja.com.br": 1754,
     "zattini.com.br": 1785,
     "shopfacil.com.br": 1796,
     "sephora.com.br": 1926,
@@ -77,9 +71,11 @@ afilio_programs = {
     "taqi.com.br": 1950,
     "friboi.com.br": 1951,
     "bobstore.com.br": 1959,
-    "carrefour.com.br": 2001,
+    "carrefour.com.br": 2829,
     "korresbr.com.br": 2628,
     "loja.jequiti.com.br": 2495,
     "centralar.com.br": 2168,
-    'banggood.com': 2693
+    'banggood.com': 2693,
+    "pt.aliexpress.com": 2351,
+    "aliexpress.com": 2351,
 }

@@ -28,6 +28,9 @@ Currently supported:
     * MGZ_STORE_NAME=
     * NATURA_CONSULTORIA_NAME=
     * BANGGOOD_REFERENCE_ID=
+    * ZANOX_ADS_SPACE_ID=
+    * ZANOX_CONNECT_ID=
+    * LOMADEE_SOURCE_ID=
 * import module and use-it
     * `>>> from affiliate_deeplink.afilio import Afilio`
     * `>>> Afilio.get_tracking_url('url')`
