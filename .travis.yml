@@ -1,10 +1,20 @@
 language: python
 python:
 - "3.6"
+before_script:
+- curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+- chmod +x ./cc-test-reporter
 install:
 - python setup.py install
+- pip install -r requirements/dev.txt
 script:
 - make build
+- "pytest"
+
+after_script:
+- coverage xml
+- ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
+
 deploy:
   provider: pypi
   user: mmaia.cc

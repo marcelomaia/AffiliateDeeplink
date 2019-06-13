@@ -85,3 +85,8 @@ def natura_url(request):
 )
 def magalu_url(request):
     return request.param
+
+
+@pytest.fixture(scope="function", params=[('http://americanas.com.br', 'https://iuuuupiiii.com')])
+def lomadee_url(request):
+    return request.param
