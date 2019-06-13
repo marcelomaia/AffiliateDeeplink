@@ -10,7 +10,7 @@ class Magalu(BaseDeeplinkGenerator):
     """
 
     @classmethod
-    def get_tracking_url(cls, url):
+    def get_tracking_url(cls, url, **kwargs):
         parsed_uri = parse.urlparse(url)
         splitted_url = parsed_uri.path.split('/')
         splitted_url[1] = MGZ_STORE_NAME

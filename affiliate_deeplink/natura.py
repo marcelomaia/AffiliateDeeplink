@@ -10,7 +10,7 @@ class Natura(BaseDeeplinkGenerator):
     """
 
     @classmethod
-    def get_tracking_url(cls, url):
+    def get_tracking_url(cls, url, **kwargs):
         parsed_uri = parse.urlparse(url)
         query = 'consultoria={}&a=a'.format(NATURA_CONSULTORIA_NAME)
         url = '{scheme}://{netloc}{path}?{query}'.format(scheme=parsed_uri.scheme,
