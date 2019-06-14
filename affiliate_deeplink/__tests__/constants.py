@@ -121,5 +121,9 @@ LOMADEE_INVALID_SOURCE_ID = {
     "totalresultsavailable": 0
 }
 
+AFILIO_SUCESS = """<WSdeeplink><link><a href="http://yahoo!!!!" target="_blank">deeplink</a>
+<br>deeplink<br></link></WSdeeplink>"""
 
-AFILIO_SUCESS = """<WSdeeplink><link><a href="http://yahoo!!!!" target="_blank">deeplink</a><br>deeplink<br></link></WSdeeplink>"""
+ZANOX_SUCESS = {"error": 1, "message": "Success", "url": "http://yahoo!!!!"}
+
+ZANOX_ERROR = {"error": 5, "message": "You have not applied for this program", "url": ""}

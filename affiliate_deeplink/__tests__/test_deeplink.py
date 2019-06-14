@@ -1,4 +1,6 @@
-from .constants import LOMADEE_SUCESS_REQ, LOMADEE_INVALID_URL_REQ, LOMADEE_INVALID_SOURCE_ID, AFILIO_SUCESS
+from .constants import (LOMADEE_SUCESS_REQ, LOMADEE_INVALID_URL_REQ,
+                        LOMADEE_INVALID_SOURCE_ID, AFILIO_SUCESS,
+                        ZANOX_SUCESS, ZANOX_ERROR)
 from ..afilio import Afilio
 from ..amazon import Amazon
 from ..b2w import B2w
@@ -6,6 +8,7 @@ from ..banggood import Banggood
 from ..lomadee import Lomadee
 from ..magazine_luiza import Magalu
 from ..natura import Natura
+from ..zanox import Zanox
 
 
 def helper(urls, _class):
@@ -68,3 +71,21 @@ def test_afilio(monkeypatch, afilio_url):
 
     monkeypatch.setattr(Afilio, "_req_afilio", mockreturn)
     helper(afilio_url, Afilio)
+
+
+def test_zanox(monkeypatch, zanox_url):
+    def mockreturn(param):
+        _, expected = zanox_url
+        return ZANOX_SUCESS
+
+    monkeypatch.setattr(Zanox, "_req_zanox", mockreturn)
+    helper(zanox_url, Zanox)
+
+
+def test_zanox_invalid(monkeypatch, zanox_invalid_url):
+    def mockreturn(param):
+        _, expected = zanox_invalid_url
+        return ZANOX_ERROR
+
+    monkeypatch.setattr(Zanox, "_req_zanox", mockreturn)
+    helper(zanox_invalid_url, Zanox)

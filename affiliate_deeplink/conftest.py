@@ -102,3 +102,15 @@ def lomadee_url_invalid(request):
                                            'http://yahoo!!!!')])
 def afilio_url(request):
     return request.param
+
+
+@pytest.fixture(scope="function", params=[('https://boticario.com.br',
+                                           'http://yahoo!!!!')])
+def zanox_url(request):
+    return request.param
+
+
+@pytest.fixture(scope="function", params=[('https://some_invalid.url',
+                                           '')])
+def zanox_invalid_url(request):
+    return request.param
