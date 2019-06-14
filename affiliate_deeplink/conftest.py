@@ -90,3 +90,9 @@ def magalu_url(request):
 @pytest.fixture(scope="function", params=[('http://americanas.com.br', 'https://iuuuupiiii.com')])
 def lomadee_url(request):
     return request.param
+
+
+@pytest.fixture(scope="function", params=[('https://some.invalid.url',
+                                           '')])
+def lomadee_url_invalid(request):
+    return request.param

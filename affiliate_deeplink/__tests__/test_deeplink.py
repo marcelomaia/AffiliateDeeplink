@@ -1,3 +1,4 @@
+from .constants import LOMADEE_SUCESS_REQ, LOMADEE_INVALID_URL_REQ, LOMADEE_INVALID_SOURCE_ID
 from ..amazon import Amazon
 from ..b2w import B2w
 from ..banggood import Banggood
@@ -35,15 +36,25 @@ def test_magalu(magalu_url):
 def test_lomadee(monkeypatch, lomadee_url):
     def mockreturn(param):
         _, expected = lomadee_url
-        return {"totallooseoffers": 0, "details": {
-            "date": {"valid": True, "eonandyear": {"lowestsetbit": 0}, "hour": 17, "month": 6, "year": 2019,
-                     "timezone": -180, "millisecond": 174, "xmlschematype": {"prefix": "", "localpart": "dateTime",
-                                                                             "namespaceuri": "http://www.w3.org/2001/XMLSchema"},
-                     "day": 13, "minute": 51, "second": 1}, "code": 0, "applicationversion": "v1",
-            "applicationid": "3651516a44624e526551453d", "elapsedtime": 42, "message": "success", "status": "success"},
-                "lomadeelinks": [{"lomadeelink": {"originallink": "http://americanas.com.br", "code": 0, "id": 1,
-                                                  "redirectlink": "https://iuuuupiiii.com"}}],
-                "page": 1, "totalpages": 1, "totalresultsreturned": 1, "totalresultsavailable": 1}
+        return LOMADEE_SUCESS_REQ
 
     monkeypatch.setattr(Lomadee, "_req_lomadee", mockreturn)
     helper(lomadee_url, Lomadee)
+
+
+def test_lomadee_fail(monkeypatch, lomadee_url_invalid):
+    def mockreturn(param):
+        _, expected = lomadee_url_invalid
+        return LOMADEE_INVALID_URL_REQ
+
+    monkeypatch.setattr(Lomadee, "_req_lomadee", mockreturn)
+    helper(lomadee_url_invalid, Lomadee)
+
+
+def test_lomadee_invalid_source_id(monkeypatch, lomadee_url_invalid):
+    def mockreturn(param):
+        _, expected = lomadee_url_invalid
+        return LOMADEE_INVALID_SOURCE_ID
+
+    monkeypatch.setattr(Lomadee, "_req_lomadee", mockreturn)
+    helper(lomadee_url_invalid, Lomadee)
