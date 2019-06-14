@@ -19,13 +19,14 @@ class Lomadee(BaseDeeplinkGenerator):
         deeplink = ''
         try:
             json = cls._req_lomadee(url)
-            deeplink = json['lomadeelinks'][0]['lomadeelink']['redirectlink']
+            lomadee_link = json['lomadeelinks'][0]['lomadeelink']
+            deeplink = lomadee_link['redirectlink']
         except IndexError as e:
-            logger.error('Error: {}'.format(json))
+            logger.error('IndexError: {}'.format(json))
         except KeyError as e:
-            logger.error('Error: {}'.format(json))
+            logger.error('KeyError: {}'.format(json))
         except ConnectionError as e:
-            logger.error('Error: {}'.format(e))
+            logger.error('ConnectionError: {}'.format(e))
         return deeplink
 
     @classmethod

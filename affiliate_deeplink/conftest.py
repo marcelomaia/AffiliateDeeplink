@@ -90,3 +90,27 @@ def magalu_url(request):
 @pytest.fixture(scope="function", params=[('http://americanas.com.br', 'https://iuuuupiiii.com')])
 def lomadee_url(request):
     return request.param
+
+
+@pytest.fixture(scope="function", params=[('https://some.invalid.url',
+                                           '')])
+def lomadee_url_invalid(request):
+    return request.param
+
+
+@pytest.fixture(scope="function", params=[('https://www.carrefour.com.br/',
+                                           'http://yahoo!!!!')])
+def afilio_url(request):
+    return request.param
+
+
+@pytest.fixture(scope="function", params=[('https://boticario.com.br',
+                                           'http://yahoo!!!!')])
+def zanox_url(request):
+    return request.param
+
+
+@pytest.fixture(scope="function", params=[('https://some_invalid.url',
+                                           '')])
+def zanox_invalid_url(request):
+    return request.param
