@@ -36,6 +36,6 @@ Currently supported:
     * ZANOX_ADS_SPACE_ID=
     * ZANOX_CONNECT_ID=
     * LOMADEE_SOURCE_ID=
-* import module and use-it
-    * `>>> from affiliate_deeplink.afilio import Afilio`
-    * `>>> Afilio.get_tracking_url('url')`
+* import affiliate_deeplink module and use-it
+    * `>>> import affiliate_deeplink as deeplink`
+    * `>>> deeplink.Afilio.get_tracking_url('url')`
