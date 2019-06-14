@@ -19,6 +19,17 @@ class Afilio(BaseDeeplinkGenerator):
     @classmethod
     def get_tracking_url(cls, url, **kwargs):
         deeplink = ''
+        try:
+            response = cls._req_afilio(url)
+            deeplink = response.split('href="')[1].split('" target="')[0].replace('&amp;', '&')
+        except IndexError as e:
+            logger.error('Error: {}'.format(response))
+        except ConnectionError as e:
+            logger.error('Error: {}'.format(e))
+        return deeplink
+
+    @classmethod
+    def _req_afilio(cls, url):
         parsed_uri = parse.urlparse(url)
         domain = '{uri.netloc}'.format(uri=parsed_uri).replace('www.', '')
         url = clear_url(url)
@@ -31,14 +42,8 @@ class Afilio(BaseDeeplinkGenerator):
                                           affid=AFILIO_AFFID,
                                           token=AFILIO_TOKEN,
                                           siteid=AFILIO_SITE_ID)
-        try:
-            r = requests.get(req_url)
-            deeplink = r.text.split('href="')[1].split('" target="')[0].replace('&amp;', '&')
-        except IndexError as e:
-            logger.error('Error: {}'.format(r.text))
-        except ConnectionError as e:
-            logger.error('Error: {}'.format(e))
-        return deeplink
+        r = requests.get(req_url)
+        return r.text
 
     @classmethod
     def get_sales_report(cls, start_date, end_date, **kwargs):

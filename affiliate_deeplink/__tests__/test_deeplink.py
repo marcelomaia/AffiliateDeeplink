@@ -1,4 +1,5 @@
-from .constants import LOMADEE_SUCESS_REQ, LOMADEE_INVALID_URL_REQ, LOMADEE_INVALID_SOURCE_ID
+from .constants import LOMADEE_SUCESS_REQ, LOMADEE_INVALID_URL_REQ, LOMADEE_INVALID_SOURCE_ID, AFILIO_SUCESS
+from ..afilio import Afilio
 from ..amazon import Amazon
 from ..b2w import B2w
 from ..banggood import Banggood
@@ -58,3 +59,12 @@ def test_lomadee_invalid_source_id(monkeypatch, lomadee_url_invalid):
 
     monkeypatch.setattr(Lomadee, "_req_lomadee", mockreturn)
     helper(lomadee_url_invalid, Lomadee)
+
+
+def test_afilio(monkeypatch, afilio_url):
+    def mockreturn(param):
+        _, expected = afilio_url
+        return AFILIO_SUCESS
+
+    monkeypatch.setattr(Afilio, "_req_afilio", mockreturn)
+    helper(afilio_url, Afilio)

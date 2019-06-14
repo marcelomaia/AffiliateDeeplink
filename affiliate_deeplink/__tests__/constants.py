@@ -120,3 +120,6 @@ LOMADEE_INVALID_SOURCE_ID = {
     "totalresultsreturned": 0,
     "totalresultsavailable": 0
 }
+
+
+AFILIO_SUCESS = """<WSdeeplink><link><a href="http://yahoo!!!!" target="_blank">deeplink</a><br>deeplink<br></link></WSdeeplink>"""

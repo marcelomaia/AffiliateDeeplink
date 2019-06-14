@@ -96,3 +96,9 @@ def lomadee_url(request):
                                            '')])
 def lomadee_url_invalid(request):
     return request.param
+
+
+@pytest.fixture(scope="function", params=[('https://www.carrefour.com.br/',
+                                           'http://yahoo!!!!')])
+def afilio_url(request):
+    return request.param
