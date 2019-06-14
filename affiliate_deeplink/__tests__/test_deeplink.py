@@ -1,3 +1,5 @@
+import pytest
+
 from .constants import (LOMADEE_SUCESS_REQ, LOMADEE_INVALID_URL_REQ,
                         LOMADEE_INVALID_SOURCE_ID, AFILIO_SUCESS,
                         ZANOX_SUCESS, ZANOX_ERROR)
@@ -5,6 +7,7 @@ from ..afilio import Afilio
 from ..amazon import Amazon
 from ..b2w import B2w
 from ..banggood import Banggood
+from ..base import BaseDeeplinkGenerator
 from ..lomadee import Lomadee
 from ..magazine_luiza import Magalu
 from ..natura import Natura
@@ -89,3 +92,11 @@ def test_zanox_invalid(monkeypatch, zanox_invalid_url):
 
     monkeypatch.setattr(Zanox, "_req_zanox", mockreturn)
     helper(zanox_invalid_url, Zanox)
+
+
+def test_base_deeplink():
+    with pytest.raises(NotImplementedError):
+        BaseDeeplinkGenerator.get_tracking_url('some url')
+
+    with pytest.raises(NotImplementedError):
+        BaseDeeplinkGenerator.get_sales_report('start date', 'end date')
