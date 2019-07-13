@@ -6,3 +6,4 @@ pytest-cov==2.7.1
 pytest-sugar==0.9.2
 pytest-watch==4.2.0
 pytest-env==0.6.2
+requests-cache==0.5.0
