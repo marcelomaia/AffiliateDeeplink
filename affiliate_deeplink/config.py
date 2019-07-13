@@ -11,6 +11,7 @@ BANGGOOD_REFERENCE_ID = os.getenv('BANGGOOD_REFERENCE_ID')
 LOMADEE_SOURCE_ID = os.getenv('LOMADEE_SOURCE_ID')
 ZANOX_ADS_SPACE_ID = os.getenv('ZANOX_ADS_SPACE_ID')
 ZANOX_CONNECT_ID = os.getenv('ZANOX_CONNECT_ID')
+HURB_CMP_ID = os.getenv('HURB_CMP_ID')
 
 afilio_programs = {
     "walmart.com.br": 191,
