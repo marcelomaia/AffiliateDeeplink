@@ -53,6 +53,7 @@ ignore_args = ['tag', 'ref', 'linkId',  # amazon
                'utm_term', 'siteID', 'utm_source', 'utm_medium', 'u1',  # rakuten
                'ranMID', 'utm_term', 'ranSiteID', 'IdParceiro',  # rakuten
                'lmdsid',  # lomadee
+               'cmp'  # hurb
                ]
 
 

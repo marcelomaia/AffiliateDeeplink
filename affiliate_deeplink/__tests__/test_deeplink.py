@@ -8,6 +8,7 @@ from ..amazon import Amazon
 from ..b2w import B2w
 from ..banggood import Banggood
 from ..base import BaseDeeplinkGenerator
+from ..hurb import Hurb
 from ..lomadee import Lomadee
 from ..magazine_luiza import Magalu
 from ..natura import Natura
@@ -22,6 +23,10 @@ def helper(urls, _class):
 
 def test_banggood(bangood_url):
     helper(bangood_url, Banggood)
+
+
+def test_hurb(hurb_url):
+    helper(hurb_url, Hurb)
 
 
 def test_b2w(b2w_url):
