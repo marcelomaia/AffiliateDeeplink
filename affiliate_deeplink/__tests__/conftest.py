@@ -5,7 +5,7 @@ import pytest
 BASEDIR = os.path.dirname(os.path.abspath(__file__))
 links = []
 
-with open(os.path.join(BASEDIR, '__tests__', 'links.txt'), 'r') as f:
+with open(os.path.join(BASEDIR, 'links.txt'), 'r') as f:
     lines = f.readlines()
     for line in lines:
         original, expected = line.split(';')
@@ -32,6 +32,19 @@ def param_url(request):
          'https://www.banggood.com/pt/Original-Xiaomi-miband-3-Heart-Rate-Monitor-Bluetooth-Smart-'
          'Wristband-Bracelet-p-1145408.html?p=UFO&akmClientCountry=BR')])
 def bangood_url(request):
+    return request.param
+
+
+@pytest.fixture(
+    scope="function",
+    params=[
+        ('https://www.hurb.com/hoteis/campinas/royal-palm-plaza-resort-campinas-OMN-2923'
+         '?utm_source=XXX&utm_medium=clubehu&utm_campaign=666&cmp=666',
+         'https://www.hurb.com/hoteis/campinas/royal-palm-plaza-resort-campinas-OMN-2923'
+         '?utm_campaign=UFO&cmp=UFO')
+    ]
+)
+def hurb_url(request):
     return request.param
 
 

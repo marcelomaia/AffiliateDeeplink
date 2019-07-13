@@ -15,7 +15,7 @@ Currently supported:
  * [Banggood](https://www.banggood.com)
  * [Lomadee](https://www.lomadee.com/)
  * [Zanox/Awin](https://marketplace.zanox.com/)
-
+ * [Hotel Urbano](https://www.clubehu.com.br/) 
 ## Installation
 ##### with setup.py
 `python setup.py install`
@@ -36,6 +36,7 @@ Currently supported:
     * ZANOX_ADS_SPACE_ID=
     * ZANOX_CONNECT_ID=
     * LOMADEE_SOURCE_ID=
+    * HURB_CMP_ID=
 * import affiliate_deeplink module and use-it
     * `>>> import affiliate_deeplink as deeplink`
     * `>>> deeplink.Afilio.get_tracking_url('url')`
