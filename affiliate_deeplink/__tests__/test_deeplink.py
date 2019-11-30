@@ -46,30 +46,7 @@ def test_magalu(magalu_url):
 
 
 def test_lomadee(monkeypatch, lomadee_url):
-    def mockreturn(param):
-        _, expected = lomadee_url
-        return LOMADEE_SUCESS_REQ
-
-    monkeypatch.setattr(Lomadee, "_req_lomadee", mockreturn)
     helper(lomadee_url, Lomadee)
-
-
-def test_lomadee_fail(monkeypatch, lomadee_url_invalid):
-    def mockreturn(param):
-        _, expected = lomadee_url_invalid
-        return LOMADEE_INVALID_URL_REQ
-
-    monkeypatch.setattr(Lomadee, "_req_lomadee", mockreturn)
-    helper(lomadee_url_invalid, Lomadee)
-
-
-def test_lomadee_invalid_source_id(monkeypatch, lomadee_url_invalid):
-    def mockreturn(param):
-        _, expected = lomadee_url_invalid
-        return LOMADEE_INVALID_SOURCE_ID
-
-    monkeypatch.setattr(Lomadee, "_req_lomadee", mockreturn)
-    helper(lomadee_url_invalid, Lomadee)
 
 
 def test_afilio(monkeypatch, afilio_url):
