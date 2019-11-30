@@ -6,7 +6,8 @@ before_script:
 - chmod +x ./cc-test-reporter
 install:
 - python setup.py install
-- pip install -r requirements/dev.txt
+- pip install pipenv
+- pipenv install --dev
 script:
 - make build
 - "pytest"
