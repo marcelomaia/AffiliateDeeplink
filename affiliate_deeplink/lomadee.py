@@ -3,6 +3,7 @@ from urllib import parse
 from urllib.parse import urlparse
 from .base import BaseDeeplinkGenerator
 from .config import LOMADEE_SOURCE_ID
+from affiliate_deeplink.utils import clear_url
 
 logger = logging.getLogger('deeplink.lomadee')
 
@@ -12,11 +13,13 @@ ACCEPTED_DOMAINS = ['maxmilhas.com', 'aramis.com.br', 'novaconcursos.com.br', 'd
                     'vestibular.unoparead.com', 'bugshop.com', 'seubebeprecisa.com.br', 'reppara.com',
                     'estude-ipemigpos-ead', 'cerejasembolo.com', 'pipocaweb.com', 'aureanutrition.com.br',
                     'loja.betec.com', 'zandarastore.com', 'tf.com', 'magazinepagmenos.com', 'segundociclo.com',
-                    'descomplica.com', 'colorbrinque.com', 'lojadomecanico.com.br', 'camisariacolombo.com', 'amazon.com',
+                    'descomplica.com', 'colorbrinque.com', 'lojadomecanico.com.br', 'camisariacolombo.com',
+                    'amazon.com',
                     'loja.asus.com', 'americanas.com', 'americanas.com.br', 'nike.com', 'netshoes.com.br',
                     'centauro.com',
                     'loja.electrolux.com.br', 'novomundo.com', 'loja.brastemp.com.br', 'pbkids.com',
-                    'pagseguro.uol.com', 'travessa.com', 'lomadee.com', 'shoptime.com', 'hangloose.com', 'girafa.com',
+                    'pagseguro.uol.com', 'travessa.com', 'lomadee.com', 'shoptime.com', 'hangloose.com',
+                    'girafa.com.br', 'girafa.com',
                     'mobly.com', 'submarino.com', 'submarino.com.br', 'lenovobr', 'rihappy.com', 'livrariacultura.com',
                     'abouthome.com.br',
                     'loja.consul.com', 'classictennis.com', 'sieno.com', 'zattini.com', 'br.aliexpress', 'natue.com.br',
@@ -79,8 +82,9 @@ class Lomadee(BaseDeeplinkGenerator):
         parsed_uri = urlparse(url)
         domain = parsed_uri.netloc.replace('www.', '')
         if domain not in ACCEPTED_DOMAINS:
-            raise LomadeeException('domain not supported yet')
-        parsed_url = parse.quote_plus(url)
+            logger.error(f'domain {domain} not supported yet')
+            return ''
+        parsed_url = parse.quote_plus(clear_url(url))
         deeplink = f'https://redir.lomadee.com/v2/deeplink?url={parsed_url}&sourceId={LOMADEE_SOURCE_ID}'
         logger.debug(f'IN {url} OUT {deeplink}')
         return deeplink
