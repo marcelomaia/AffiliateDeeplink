@@ -7,7 +7,7 @@ from affiliate_deeplink.utils import clear_url
 from .base import BaseDeeplinkGenerator
 from .config import ZANOX_ADS_SPACE_ID, ZANOX_CONNECT_ID
 
-logger = logging.getLogger('deeplink.zanox')
+log = logging.getLogger(__file__)
 
 
 class Zanox(BaseDeeplinkGenerator):
@@ -18,9 +18,10 @@ class Zanox(BaseDeeplinkGenerator):
             json = cls._req_zanox(url)
             deeplink = json['url']
             if not deeplink:
-                logger.error('Error: {}'.format(json))
+                log.debug(f'No deeplink generated: {json}')
         except ConnectionError as e:
-            logger.error('Error: {}'.format(e))
+            log.debug(f'{url} -> {e}')
+        log.debug(f'old url: {url}. new url {deeplink}')
         return deeplink
 
     @classmethod

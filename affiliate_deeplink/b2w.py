@@ -1,6 +1,10 @@
+import logging
+
 from .base import BaseDeeplinkGenerator
 from .config import BW2_AFL_ID
 from .utils import add_url_params
+
+log = logging.getLogger(__file__)
 
 
 class B2w(BaseDeeplinkGenerator):
@@ -22,5 +26,6 @@ class B2w(BaseDeeplinkGenerator):
             params['opn'] = 'AFLNOVOSUB'
         elif 'shoptime.com.br' in url:
             params['opn'] = 'AFLSHOP'
-        url = add_url_params(url, params)
-        return url
+        new_url = add_url_params(url, params)
+        log.debug(f'old url: {url}. new url {new_url}')
+        return new_url
