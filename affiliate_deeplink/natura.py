@@ -1,8 +1,11 @@
+import logging
 from urllib import parse
 
 from affiliate_deeplink.utils import clear_url
 from .base import BaseDeeplinkGenerator
 from .config import NATURA_CONSULTORIA_NAME
+
+log = logging.getLogger(__file__)
 
 
 class Natura(BaseDeeplinkGenerator):
@@ -15,8 +18,9 @@ class Natura(BaseDeeplinkGenerator):
         url_clear = clear_url(url)
         parsed_uri = parse.urlparse(url_clear)
         query = 'consultoria={}&a=a'.format(NATURA_CONSULTORIA_NAME)
-        url = '{scheme}://{netloc}{path}?{query}'.format(scheme=parsed_uri.scheme,
-                                                         netloc=parsed_uri.netloc,
-                                                         path=parsed_uri.path,
-                                                         query=query)
-        return url
+        new_url = '{scheme}://{netloc}{path}?{query}'.format(scheme=parsed_uri.scheme,
+                                                             netloc=parsed_uri.netloc,
+                                                             path=parsed_uri.path,
+                                                             query=query)
+        log.debug(f'old url: {url}. new url {new_url}')
+        return new_url
