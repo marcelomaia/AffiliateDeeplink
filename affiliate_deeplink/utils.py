@@ -37,6 +37,7 @@ def add_url_params(url, params):
     )
     # Converting URL argument to proper query string
     query_args = '&'.join([('{}={}'.format(p, q)) for p, q in parsed_get_args.items()])
+    query_args = query_args.replace(' ', '%20')
     # Creating new parsed result object based on provided with new
     # URL arguments. Same thing happens inside of urlparse.
     new_url = ParseResult(

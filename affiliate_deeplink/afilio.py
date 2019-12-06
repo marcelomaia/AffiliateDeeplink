@@ -8,7 +8,7 @@ from .config import AFILIO_TOKEN, AFILIO_AFFID, AFILIO_SITE_ID
 from .config import afilio_programs
 from .utils import clear_url
 
-logger = logging.getLogger('deeplink.afilio')
+log = logging.getLogger(__file__)
 
 
 class Afilio(BaseDeeplinkGenerator):
@@ -23,9 +23,10 @@ class Afilio(BaseDeeplinkGenerator):
             response = cls._req_afilio(url)
             deeplink = response.split('href="')[1].split('" target="')[0].replace('&amp;', '&')
         except IndexError as e:
-            logger.error('Error: {}'.format(response))
+            log.debug(f'IndexError: {e}. URL: {url} -> {response}')
         except ConnectionError as e:
-            logger.error('Error: {}'.format(e))
+            log.debug(f'ConnectionError: {e}. URL: {url}')
+        log.debug(f'old url: {url}. new url {deeplink}')
         return deeplink
 
     @classmethod
@@ -62,5 +63,5 @@ class Afilio(BaseDeeplinkGenerator):
             r = requests.get(req_url)
             return r.json()
         except ConnectionError as e:
-            logger.error('Error: {}'.format(e))
+            log.debug(f'ConnectionError: {e}. URL: {req_url}')
         return None
