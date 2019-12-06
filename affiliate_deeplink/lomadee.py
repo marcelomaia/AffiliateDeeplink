@@ -20,7 +20,8 @@ class Lomadee(BaseDeeplinkGenerator):
         Estrutura do link
             https://redir.lomadee.com/v2/deeplink?url={url}&sourceId={sourceId}
             Parâmetros:
-            {url}: É o link da loja que deseja direcionar o usuário. Este link deverá ser encodado. Exemplo: https://www.americanas.com.br
+            {url}: É o link da loja que deseja direcionar o usuário.
+            Este link deverá ser encodado. Exemplo: https://www.americanas.com.br
             {sourceId}: ID do afiliado (saber mais)
             {mdasc} (opcional): ID do sub-afiliado (saber mais)
 

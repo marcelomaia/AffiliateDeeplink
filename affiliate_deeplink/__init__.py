@@ -41,7 +41,7 @@ def _is_hotel_urbano(url):
     return 'hurb.com' in url or 'hotelurbano.com' in url
 
 
-def generate_deeplink(url: str) -> str:
+def generate_deeplink(url: str) -> str:  # noqa c901
     # TODO, let user select deeplink generator order
     if _is_b2w(url):
         return B2w.get_tracking_url(url)
