@@ -53,13 +53,19 @@ def hurb_url(request):
     params=[
         (
                 'https://www.americanas.com.br/produto/113998217/micro-ondas-philco-pme25-25-litros-com-tecla-preparo-rapido-prata-espelhado?epar=b2wafiliados&franq=AFL-03-236386&opn=AFLACOM&voltagem=110%20volts',
-                'https://www.americanas.com.br/produto/113998217/micro-ondas-philco-pme25-25-litros-com-tecla-preparo-rapido-prata-espelhado?epar=b2wafiliados&franq=UFO&opn=AFLACOM&voltagem=110 volts&hl=lower'),
+                'https://www.americanas.com.br/produto/113998217/micro-ondas-philco-pme25-25-litros-com-tecla-preparo-rapido-prata-espelhado?epar=b2wafiliados&franq=UFO&opn=AFLACOM&voltagem=110%20volts&hl=lower'),
         (
                 'https://www.submarino.com.br/produto/134251340/tv-led-32-lg-32lv300c-awz-full-hd-com-conversor-digital-integrado-1-usb-1-hdmi-modo-hotel-preto?opn=AFLNOVOSUB&epar=b2wafiliados&franq=AFL-03-236386',
                 'https://www.submarino.com.br/produto/134251340/tv-led-32-lg-32lv300c-awz-full-hd-com-conversor-digital-integrado-1-usb-1-hdmi-modo-hotel-preto?opn=AFLNOVOSUB&epar=b2wafiliados&franq=UFO&hl=lower'),
         (
                 'https://www.shoptime.com.br/produto/51551285/depilador-eletrico-feminino-batom-portatil-recarregavel-bateria-luz-usb?franq=AFL-03-122110',
-                'https://www.shoptime.com.br/produto/51551285/depilador-eletrico-feminino-batom-portatil-recarregavel-bateria-luz-usb?franq=UFO&epar=b2wafiliados&hl=lower&opn=AFLSHOP')])
+                'https://www.shoptime.com.br/produto/51551285/depilador-eletrico-feminino-batom-portatil-recarregavel-bateria-luz-usb?franq=UFO&epar=b2wafiliados&hl=lower&opn=AFLSHOP'
+        ),
+        (
+                'https://www.americanas.com.br/produto/134188002/lavadora-de-roupas-consul-9kg-cwb09-branca?epar=b2wafiliados&franq=AFL-03-224452&opn=AFLACOM&pfm_carac=Continental Center&pfm_index=7&pfm_page=seller&pfm_pos=grid&pfm_type=vit_product_grid&sellerId=8584116000470&sellerid=8584116000470&voltagem=220V&hl=lower',
+                'https://www.americanas.com.br/produto/134188002/lavadora-de-roupas-consul-9kg-cwb09-branca?epar=b2wafiliados&franq=UFO&opn=AFLACOM&pfm_carac=Continental%20Center&pfm_index=7&pfm_page=seller&pfm_pos=grid&pfm_type=vit_product_grid&sellerId=8584116000470&sellerid=8584116000470&voltagem=220V&hl=lower')
+    ]
+)
 def b2w_url(request):
     return request.param
 
