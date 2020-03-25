@@ -12,6 +12,8 @@ LOMADEE_SOURCE_ID = os.getenv('LOMADEE_SOURCE_ID')
 ZANOX_ADS_SPACE_ID = os.getenv('ZANOX_ADS_SPACE_ID')
 ZANOX_CONNECT_ID = os.getenv('ZANOX_CONNECT_ID')
 HURB_CMP_ID = os.getenv('HURB_CMP_ID')
+FASTSHOP_AFL_ID = os.getenv('FASTSHOP_AFL_ID')
+FASTSHOP_AFL_SELLER_NAME = os.getenv('FASTSHOP_AFL_SELLER_NAME')
 
 afilio_programs = {
     "walmart.com.br": 191,
