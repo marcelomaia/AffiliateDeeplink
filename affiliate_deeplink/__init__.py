@@ -41,6 +41,7 @@ def _is_netshoes(url):
 def _is_hotel_urbano(url):
     return 'hurb.com' in url or 'hotelurbano.com' in url
 
+
 def _is_fastshop(url):
     return 'fastshop.com.br' in url
 
