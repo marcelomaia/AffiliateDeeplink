@@ -2,6 +2,7 @@ from .afilio import Afilio
 from .amazon import Amazon
 from .b2w import B2w
 from .banggood import Banggood
+from .fastshop import FastShop
 from .hurb import Hurb
 from .lomadee import Lomadee
 from .magazine_luiza import Magalu
@@ -41,6 +42,10 @@ def _is_hotel_urbano(url):
     return 'hurb.com' in url or 'hotelurbano.com' in url
 
 
+def _is_fastshop(url):
+    return 'fastshop.com.br' in url
+
+
 def generate_deeplink(url: str) -> str:  # noqa c901
     # TODO, let user select deeplink generator order
     if _is_b2w(url):
@@ -57,6 +62,8 @@ def generate_deeplink(url: str) -> str:  # noqa c901
         return Lomadee.get_tracking_url(url)
     elif _is_hotel_urbano(url):
         return Hurb.get_tracking_url(url)
+    elif _is_fastshop(url):
+        return FastShop.get_tracking_url(url)
     else:
         deeplink = Zanox.get_tracking_url(url)
         if not deeplink:
