@@ -7,6 +7,25 @@
 [![Test Coverage](https://api.codeclimate.com/v1/badges/f9a4f9157b86608f527c/test_coverage)](https://codeclimate.com/github/marcelomaia/AffiliateDeeplink/test_coverage)
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 
+```
+        __  __ _ _ _       _
+       / _|/ _(_) (_)     | |
+  __ _| |_| |_ _| |_  __ _| |_ ___
+ / _` |  _|  _| | | |/ _` | __/ _ \
+| (_| | | | | | | | | (_| | ||  __/
+ \__,_|_| |_| |_|_|_|\__,_|\__\___|
+
+
+     _                 _ _       _
+    | |               | (_)     | |
+  __| | ___  ___ _ __ | |_ _ __ | | __
+ / _` |/ _ \/ _ \ '_ \| | | '_ \| |/ /
+| (_| |  __/  __/ |_) | | | | | |   <
+ \__,_|\___|\___| .__/|_|_|_| |_|_|\_\
+                | |
+                |_|
+```
+
 ## What is it
 
 This package is used to create deeplinks for affiliate marketing.
@@ -14,14 +33,14 @@ This package is used to create deeplinks for affiliate marketing.
 Currently supported:
 
 * [Afilio](http://afilio.com.br/)
-* [B2W](https://secure.afiliados.com.br/)
 * [Amazon](https://associados.amazon.com.br/)
+* [B2W](https://secure.afiliados.com.br/)
+* [Banggood](https://www.banggood.com)
+* [Hotel Urbano](https://www.clubehu.com.br/)
+* [Lomadee](https://www.lomadee.com/)
 * [MagazineLuiza](https://www.magazinevoce.com.br/)
 * [Natura](https://natura.com.br)
-* [Banggood](https://www.banggood.com)
-* [Lomadee](https://www.lomadee.com/)
 * [Zanox/Awin](https://marketplace.zanox.com/)
-* [Hotel Urbano](https://www.clubehu.com.br/)
 
 ## Installation
 
@@ -37,17 +56,19 @@ Currently supported:
 
 * Setup environment keys
   * AFILIO_AFFID=
-  * AFILIO_TOKEN=
   * AFILIO_SITE_ID=
-  * BW2_AFL_ID=
+  * AFILIO_TOKEN=
   * AMZ_STORE_NAME=
+  * AWIN_ADS_SPACE_ID=
+  * BANGGOOD_REFERENCE_ID=
+  * BW2_AFL_ID=
+  * HURB_CMP_ID=
+  * LOMADEE_SOURCE_ID=
   * MGZ_STORE_NAME=
   * NATURA_CONSULTORIA_NAME=
-  * BANGGOOD_REFERENCE_ID=
   * ZANOX_ADS_SPACE_ID=
   * ZANOX_CONNECT_ID=
-  * LOMADEE_SOURCE_ID=
-  * HURB_CMP_ID=
+
 * import affiliate_deeplink module and use-it
-  * `>>> import affiliate_deeplink as deeplink`
-  * `>>> deeplink.Afilio.get_tracking_url('url')`
+  * `>>> from affiliate_deeplink import Awin`
+  * `>>> Awin.get_tracking_url('url')`
