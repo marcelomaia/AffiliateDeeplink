@@ -1,0 +1,23 @@
+version: 2.1
+
+jobs:
+  build-and-test:
+    docker:
+      - image: circleci/python:3.6.4
+        auth:
+          username: $DOCKERHUB_USER
+          password: $DOCKERHUB_PASSWORD
+    steps:
+      - checkout
+      - python/install-packages:
+          args: install --dev
+          pkg-manager: pipenv
+      - run:
+          command: pipenv run pytest
+          name: Test
+
+workflows:
+  main:
+    jobs:
+      - build-and-test
+
