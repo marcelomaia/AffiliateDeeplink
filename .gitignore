@@ -28,3 +28,6 @@ htmlcov/
 
 __pycache__
 settings.json
+
+# vim
+.vim
