@@ -5,8 +5,6 @@ orbs:
 
 jobs:
   build-and-test:
-    environment:
-      CC_TEST_REPORTER_ID: $CC_TEST_REPORTER_ID
     docker:
       - image: circleci/python:3.7
         auth:
@@ -25,7 +23,7 @@ jobs:
           command: |
             curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
             chmod +x ./cc-test-reporter
-            ./cc-test-reporter after-build
+            ./cc-test-reporter after-build --exit-code $?
 
 workflows:
   main:
