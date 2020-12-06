@@ -32,12 +32,16 @@ jobs:
           username: $DOCKERHUB_USER
           password: $DOCKERHUB_PASSWORD
     steps:
+      - checkout
+      - python/install-packages:
+          args: install --dev
+          pkg-manager: pipenv
       - run:
           command: pipenv run black --check affiliate_deeplink
           name: Checking black style
+
 workflows:
   main:
     jobs:
       - build-and-test
       - stylecheck
-
