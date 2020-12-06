@@ -11,7 +11,12 @@ from .zanox import Zanox
 
 
 def _is_b2w(url):
-    urls_b2w = ['americanas.com.br', 'submarino.com.br', 'shoptime.com.br', 'soubarato.com.br']
+    urls_b2w = [
+        "americanas.com.br",
+        "submarino.com.br",
+        "shoptime.com.br",
+        "soubarato.com.br",
+    ]
     for tst in urls_b2w:
         if tst in url:
             return True
@@ -19,31 +24,31 @@ def _is_b2w(url):
 
 
 def _is_magazine(url):
-    return 'magazinevoce.com.br' in url
+    return "magazinevoce.com.br" in url
 
 
 def _is_amazon(url):
-    return 'amazon.com' in url
+    return "amazon.com" in url
 
 
 def _is_natura(url):
-    return 'natura.com.br' in url
+    return "natura.com.br" in url
 
 
 def _is_banggood(url):
-    return 'banggood.com' in url
+    return "banggood.com" in url
 
 
 def _is_netshoes(url):
-    return 'netshoes.com' in url
+    return "netshoes.com" in url
 
 
 def _is_hotel_urbano(url):
-    return 'hurb.com' in url or 'hotelurbano.com' in url
+    return "hurb.com" in url or "hotelurbano.com" in url
 
 
 def _is_fastshop(url):
-    return 'fastshop.com.br' in url
+    return "fastshop.com.br" in url
 
 
 def generate_deeplink(url: str) -> str:  # noqa c901

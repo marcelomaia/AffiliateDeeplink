@@ -39,6 +39,9 @@ jobs:
       - run:
           command: pipenv run black --check affiliate_deeplink
           name: Checking black style
+      - run:
+          command: pipenv run isort --check affiliate_deeplink
+          name: Check import order
 
 workflows:
   main:

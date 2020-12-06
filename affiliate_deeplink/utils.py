@@ -1,13 +1,13 @@
 import logging
 from json import dumps
 from urllib import parse
-from urllib.parse import (unquote, urlparse, parse_qsl, ParseResult)
+from urllib.parse import ParseResult, parse_qsl, unquote, urlparse
 
-log = logging.getLogger('deeplink.util')
+log = logging.getLogger("deeplink.util")
 
 
 def add_url_params(url, params):
-    """ Add GET params to provided URL being aware of existing.
+    """Add GET params to provided URL being aware of existing.
 
     :param url: string of target URL
     :param params: dict containing requested params to be added
@@ -32,30 +32,50 @@ def add_url_params(url, params):
     # Bool and Dict values should be converted to json-friendly values
     # you may throw this part away if you don't like it :)
     parsed_get_args.update(
-        {k: dumps(v) for k, v in parsed_get_args.items()
-         if isinstance(v, (bool, dict))}
+        {k: dumps(v) for k, v in parsed_get_args.items() if isinstance(v, (bool, dict))}
     )
     # Converting URL argument to proper query string
-    query_args = '&'.join([('{}={}'.format(p, q)) for p, q in parsed_get_args.items()])
-    query_args = query_args.replace(' ', '%20')
+    query_args = "&".join([("{}={}".format(p, q)) for p, q in parsed_get_args.items()])
+    query_args = query_args.replace(" ", "%20")
     # Creating new parsed result object based on provided with new
     # URL arguments. Same thing happens inside of urlparse.
     new_url = ParseResult(
-        parsed_url.scheme, parsed_url.netloc, parsed_url.path,
-        parsed_url.params, query_args, parsed_url.fragment
+        parsed_url.scheme,
+        parsed_url.netloc,
+        parsed_url.path,
+        parsed_url.params,
+        query_args,
+        parsed_url.fragment,
     ).geturl()
 
     return new_url
 
 
-ignore_args = ['tag', 'ref', 'linkId',  # amazon
-               'p', 'utm_campaign', 'utm_content', 'custlinkid',  # bangood
-               'utm_source', 'zanpid', 'utm_medium', 'utm_campaign', 'origem',  # zanox
-               'utm_term', 'siteID', 'utm_source', 'utm_medium', 'u1',  # rakuten
-               'ranMID', 'utm_term', 'ranSiteID', 'IdParceiro',  # rakuten
-               'lmdsid',  # lomadee
-               'cmp'  # hurb
-               ]
+ignore_args = [
+    "tag",
+    "ref",
+    "linkId",  # amazon
+    "p",
+    "utm_campaign",
+    "utm_content",
+    "custlinkid",  # bangood
+    "utm_source",
+    "zanpid",
+    "utm_medium",
+    "utm_campaign",
+    "origem",  # zanox
+    "utm_term",
+    "siteID",
+    "utm_source",
+    "utm_medium",
+    "u1",  # rakuten
+    "ranMID",
+    "utm_term",
+    "ranSiteID",
+    "IdParceiro",  # rakuten
+    "lmdsid",  # lomadee
+    "cmp",  # hurb
+]
 
 
 def clear_url(url: str, input_params: dict = {}) -> str:
@@ -71,9 +91,9 @@ def clear_url(url: str, input_params: dict = {}) -> str:
     for key in params_dict:
         if key not in ignore_args:
             params[key] = params_dict[key]
-    cleared_url = '{scheme}://{netloc}{path}'.format(scheme=parsed_uri.scheme,
-                                                     netloc=parsed_uri.netloc,
-                                                     path=parsed_uri.path)
+    cleared_url = "{scheme}://{netloc}{path}".format(
+        scheme=parsed_uri.scheme, netloc=parsed_uri.netloc, path=parsed_uri.path
+    )
     cleared_url = add_url_params(cleared_url, params)
-    log.debug('URL cleared, \nfrom {} \nto {}'.format(url, cleared_url))
+    log.debug("URL cleared, \nfrom {} \nto {}".format(url, cleared_url))
     return cleared_url

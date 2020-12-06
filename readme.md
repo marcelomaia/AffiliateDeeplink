@@ -5,6 +5,7 @@
 [![Pypi downloads](https://img.shields.io/pypi/dm/affiliate-deeplink.svg)](https://img.shields.io/pypi/dm/affiliate-deeplink.svg)
 [![Maintainability](https://api.codeclimate.com/v1/badges/f9a4f9157b86608f527c/maintainability)](https://codeclimate.com/github/marcelomaia/AffiliateDeeplink/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/f9a4f9157b86608f527c/test_coverage)](https://codeclimate.com/github/marcelomaia/AffiliateDeeplink/test_coverage)
+[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 
 ## What is it
 
@@ -24,15 +25,15 @@ Currently supported:
 
 ## Installation
 
-##### with setup.py
+### with setup.py
 
 `python setup.py install`
 
-##### with pip
+### with pip
 
 `pip install affiliate-deeplink`
 
-##### Usage
+### Usage
 
 * Setup environment keys
   * AFILIO_AFFID=
@@ -50,4 +51,3 @@ Currently supported:
 * import affiliate_deeplink module and use-it
   * `>>> import affiliate_deeplink as deeplink`
   * `>>> deeplink.Afilio.get_tracking_url('url')`
-

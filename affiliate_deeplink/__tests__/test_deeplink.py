@@ -1,8 +1,5 @@
 import pytest
 
-from .constants import (LOMADEE_SUCESS_REQ, LOMADEE_INVALID_URL_REQ,
-                        LOMADEE_INVALID_SOURCE_ID, AFILIO_SUCESS,
-                        ZANOX_SUCESS, ZANOX_ERROR)
 from ..afilio import Afilio
 from ..amazon import Amazon
 from ..awin import Awin
@@ -14,6 +11,14 @@ from ..lomadee import Lomadee
 from ..magazine_luiza import Magalu
 from ..natura import Natura
 from ..zanox import Zanox
+from .constants import (
+    AFILIO_SUCESS,
+    LOMADEE_INVALID_SOURCE_ID,
+    LOMADEE_INVALID_URL_REQ,
+    LOMADEE_SUCESS_REQ,
+    ZANOX_ERROR,
+    ZANOX_SUCESS,
+)
 
 
 def helper(urls, _class):
@@ -37,8 +42,10 @@ def test_b2w(b2w_url):
 def test_amazon(amazon_url):
     helper(amazon_url, Amazon)
 
+
 def test_awin(awin_url):
     helper(awin_url, Awin)
+
 
 def test_natura(natura_url):
     helper(natura_url, Natura)
@@ -81,7 +88,7 @@ def test_zanox_invalid(monkeypatch, zanox_invalid_url):
 
 def test_base_deeplink():
     with pytest.raises(NotImplementedError):
-        BaseDeeplinkGenerator.get_tracking_url('some url')
+        BaseDeeplinkGenerator.get_tracking_url("some url")
 
     with pytest.raises(NotImplementedError):
-        BaseDeeplinkGenerator.get_sales_report('start date', 'end date')
+        BaseDeeplinkGenerator.get_sales_report("start date", "end date")

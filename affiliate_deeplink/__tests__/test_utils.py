@@ -1,4 +1,4 @@
-from ..utils import clear_url, add_url_params
+from ..utils import add_url_params, clear_url
 
 
 def test_clear_url(dirty_urls):
