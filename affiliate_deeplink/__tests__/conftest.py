@@ -123,8 +123,8 @@ def magalu_url(request):
 @pytest.fixture(scope="function", params=[
     ('https://www.americanas.com.br',
      'https://redir.lomadee.com/v2/deeplink?url=https%3A%2F%2Fwww.americanas.com.br&sourceId=UFO'),
-    ('https://www.lojadomecanico.com.br/',
-     'https://redir.lomadee.com/v2/deeplink?url=https%3A%2F%2Fwww.lojadomecanico.com.br%2F&sourceId=UFO')
+    ('https://www.girafa.com.br',
+     'https://redir.lomadee.com/v2/deeplink?url=https%3A%2F%2Fwww.girafa.com.br&sourceId=UFO')
 ]
                 )
 def lomadee_url(request):
