@@ -5,6 +5,7 @@ from .constants import (LOMADEE_SUCESS_REQ, LOMADEE_INVALID_URL_REQ,
                         ZANOX_SUCESS, ZANOX_ERROR)
 from ..afilio import Afilio
 from ..amazon import Amazon
+from ..awin import Awin
 from ..b2w import B2w
 from ..banggood import Banggood
 from ..base import BaseDeeplinkGenerator
@@ -36,6 +37,8 @@ def test_b2w(b2w_url):
 def test_amazon(amazon_url):
     helper(amazon_url, Amazon)
 
+def test_awin(awin_url):
+    helper(awin_url, Awin)
 
 def test_natura(natura_url):
     helper(natura_url, Natura)

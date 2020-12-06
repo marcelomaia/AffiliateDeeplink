@@ -12,6 +12,8 @@ pytest-watch = "==4.2.0"
 pytest-env = "==0.6.2"
 requests-cache = "==0.5.0"
 black = "==20.8b1"
+jedi = "==0.17.2"
+isort = "==5.6.4"
 
 [packages]
 requests = ">=2.22.0 "

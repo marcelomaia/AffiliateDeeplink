@@ -25,8 +25,19 @@ jobs:
             chmod +x ./cc-test-reporter
             ./cc-test-reporter after-build --exit-code $?
 
+  stylecheck:
+    docker:
+      - image: circleci/python:3.7
+        auth:
+          username: $DOCKERHUB_USER
+          password: $DOCKERHUB_PASSWORD
+    steps:
+      - run:
+          command: pipenv run black --check affiliate_deeplink
+          name: Checking black style
 workflows:
   main:
     jobs:
       - build-and-test
+      - stylecheck
 

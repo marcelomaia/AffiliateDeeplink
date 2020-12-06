@@ -31,3 +31,7 @@ settings.json
 
 # vim
 .vim
+# coverage
+coverage.xml
+# code climate
+cc-test-reporter
