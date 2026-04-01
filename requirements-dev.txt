@@ -1,0 +1,11 @@
+# Development dependencies
+flake8==3.7.7
+pytest>=7.4.0
+pytest-cov>=4.0.0
+pytest-sugar>=0.9.7
+pytest-watch>=4.2.0
+pytest-env>=1.0.0
+requests-cache==0.5.0
+black>=23.0.0
+jedi==0.17.2
+isort==5.6.4

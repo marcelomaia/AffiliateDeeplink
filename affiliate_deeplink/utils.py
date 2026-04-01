@@ -97,3 +97,24 @@ def clear_url(url: str, input_params: dict = {}) -> str:
     cleared_url = add_url_params(cleared_url, params)
     log.debug("URL cleared, \nfrom {} \nto {}".format(url, cleared_url))
     return cleared_url
+
+
+def remove_query_params(url: str, keys_to_remove) -> str:
+    """
+    Remove parâmetros de query específicos de uma URL mantendo os demais.
+
+    :param url: URL completa
+    :param keys_to_remove: iterável com nomes de parâmetros para remover
+    :return: URL com os parâmetros removidos
+    """
+    parsed = parse.urlparse(url)
+    remove_set = set(keys_to_remove)
+    filtered = [
+        (k, v)
+        for k, v in parse.parse_qsl(parsed.query, keep_blank_values=True)
+        if k not in remove_set
+    ]
+    new_query = parse.urlencode(filtered)
+    return parse.urlunparse(
+        (parsed.scheme, parsed.netloc, parsed.path, parsed.params, new_query, parsed.fragment)
+    )

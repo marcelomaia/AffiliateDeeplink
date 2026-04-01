@@ -1,0 +1,5 @@
+# Production dependencies
+requests>=2.22.0
+
+# Development dependencies
+# (install with: uv pip install -r requirements-dev.txt)

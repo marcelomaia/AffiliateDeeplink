@@ -2,6 +2,8 @@ import os
 
 import pytest
 
+from ..config import MGZ_STORE_NAME
+
 BASEDIR = os.path.dirname(os.path.abspath(__file__))
 links = []
 
@@ -142,6 +144,16 @@ def natura_url(request):
 def magalu_url(request):
     return request.param
 
+
+@pytest.fixture(scope="function")
+def magalu_novo_url():
+    original = (
+        "https://www.magazineluiza.com.br/playstation-5-slim-disk-1tb-1-controle-branco-sony/p/240609000/ga/gap5/?utm_source=divulgador&utm_medium=magalu&partner_id=3440&promoter_id=5099674&utm_campaign=5099674&is_retargeting=true&pid=magazinevoce&c=5099674&deep_link_value=https%3A%2F%2Fwww.magazineluiza.com.br%2Fplaystation-5-slim-disk-1tb-1-controle-branco-sony%2Fp%2F240609000%2FGA%2FGAP5%2F%3Futm_source%3Ddivulgador%26utm_medium%3Dmagalu%26partner_id%3D3440%26promoter_id%3D5099674%26utm_campaign%3D5099674"
+    )
+    expected = (
+        f"https://www.magazinevoce.com.br/{MGZ_STORE_NAME}/playstation-5-slim-disk-1tb-1-controle-branco-sony/p/240609000/ga/gap5/?utm_source=divulgador&utm_medium=magalu&utm_campaign=5099674&is_retargeting=true&pid=magazinevoce&c=5099674&deep_link_value=https%3A%2F%2Fwww.magazineluiza.com.br%2Fplaystation-5-slim-disk-1tb-1-controle-branco-sony%2Fp%2F240609000%2FGA%2FGAP5%2F%3Futm_source%3Ddivulgador%26utm_medium%3Dmagalu%26utm_campaign%3D5099674"
+    )
+    return (original, expected)
 
 @pytest.fixture(
     scope="function",

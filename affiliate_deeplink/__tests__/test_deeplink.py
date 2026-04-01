@@ -54,6 +54,9 @@ def test_natura(natura_url):
 def test_magalu(magalu_url):
     helper(magalu_url, Magalu)
 
+def test_magalu_novo_url(magalu_novo_url):
+    helper(magalu_novo_url, Magalu)
+
 
 def test_lomadee(monkeypatch, lomadee_url):
     helper(lomadee_url, Lomadee)
