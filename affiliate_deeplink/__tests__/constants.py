@@ -125,3 +125,11 @@ ZANOX_ERROR = {
     "message": "You have not applied for this program",
     "url": "",
 }
+
+SHOPEE_SHORTLINK_SUCCESS = {
+    "data": {
+        "generateShortLink": {
+            "shortLink": "https://shope.ee/abc123"
+        }
+    }
+}

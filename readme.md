@@ -40,6 +40,7 @@ Currently supported:
 * [Lomadee](https://www.lomadee.com/)
 * [MagazineLuiza](https://www.magazinevoce.com.br/)
 * [Natura](https://natura.com.br)
+* [Shopee](https://affiliate.shopee.com.br/)
 * [Zanox/Awin](https://marketplace.zanox.com/)
 
 ## Installation
@@ -66,9 +67,13 @@ Currently supported:
   * LOMADEE_SOURCE_ID=
   * MGZ_STORE_NAME=
   * NATURA_CONSULTORIA_NAME=
+  * SHOPEE_APP_ID=
+  * SHOPEE_APP_SECRET=
   * ZANOX_ADS_SPACE_ID=
   * ZANOX_CONNECT_ID=
 
 * import affiliate_deeplink module and use-it
   * `>>> from affiliate_deeplink import Awin`
   * `>>> Awin.get_tracking_url('url')`
+  * `>>> from affiliate_deeplink import Shopee`
+  * `>>> Shopee.get_tracking_url('https://shopee.com.br/...')`

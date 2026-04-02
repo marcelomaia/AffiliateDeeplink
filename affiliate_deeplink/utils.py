@@ -75,6 +75,7 @@ ignore_args = [
     "IdParceiro",  # rakuten
     "lmdsid",  # lomadee
     "cmp",  # hurb
+    "sp_atk",  # shopee
 ]
 
 

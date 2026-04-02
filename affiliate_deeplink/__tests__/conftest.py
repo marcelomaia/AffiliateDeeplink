@@ -155,6 +155,13 @@ def magalu_novo_url():
     )
     return (original, expected)
 
+
+@pytest.fixture(scope="function")
+def shopee_url():
+    original = "https://shopee.com.br/produto-exemplo-i.123456.7890123456?sp_atk=abc&utm_source=affiliate"
+    expected = "https://shope.ee/abc123"
+    return (original, expected)
+
 @pytest.fixture(
     scope="function",
     params=[

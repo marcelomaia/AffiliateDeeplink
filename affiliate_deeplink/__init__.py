@@ -9,4 +9,5 @@ from .hurb import Hurb
 from .lomadee import Lomadee
 from .magazine_luiza import Magalu
 from .natura import Natura
+from .shopee import Shopee
 from .zanox import Zanox
