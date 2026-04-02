@@ -53,6 +53,32 @@ Currently supported:
 
 `pip install affiliate-deeplink`
 
+## Release to PyPI
+
+To publish a new package version:
+
+1. Update the version in [setup.py](setup.py).
+2. Run the test suite.
+3. Build the distribution files.
+4. Upload the artifacts to PyPI using an API token.
+
+Example with uv:
+
+```bash
+uv pip install build twine
+python -m build
+
+export TWINE_USERNAME=__token__
+export TWINE_PASSWORD='pypi-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'
+python -m twine upload dist/*
+```
+
+Notes:
+
+- `TWINE_USERNAME` must be `__token__`.
+- `TWINE_PASSWORD` must be the full PyPI token, including the `pypi-` prefix.
+- If you already published a version, bump the version number before uploading again.
+
 ### Usage
 
 * Setup environment keys
